@@ -5,22 +5,11 @@ import Course from "@/components/course";
 import About from "@/components/About";
 import Testimonials from "@/components/Testinomials";
 import Link from "next/link";
-import Sidebar from "@/components/SideNav";
-import { SidebarItem } from "@/components/SideNav";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Fixed Sidebar */}
-      <Sidebar>
-        <SidebarItem icon={<span>🏠</span>} text="Home" active={true} />
-        <SidebarItem icon={<span>📚</span>} text="Courses" active={false} />
-        <SidebarItem icon={<span>ℹ️</span>} text="About" active={false} alert />
-        <SidebarItem icon={<span>💬</span>} text="Testimonials" active={false} />
-      </Sidebar>
-
-      {/* Main Content */}
-      <div className="md:ml-64">
+      <div className="md">
         <Navbar className="fixed top-0 w-full z-40" />
         <main className="mt-16 p-4 bg-gray-50 min-h-screen">
           <div className="flex justify-center items-center p-4">

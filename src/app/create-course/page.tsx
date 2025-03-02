@@ -16,6 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Toaster } from 'sonner';
 import Navbar from '@/components/Navbar';
 import { useRouter } from 'next/navigation';
+import { generateCourseOutline } from '../../../services/Aimodel';
 
 const formSchema = z.object({
   TopicName: z.string().min(3, "Topic name must be at least 3 characters").max(300),
@@ -39,12 +40,10 @@ const CreateCourse = () => {
     }
   })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    Toaster({
-      // title: "Course Created",
-      // description: `Successfully created ${values.TopicName} course`,
-    });
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const { TopicName, Playlist, Prerequisite, Lessions, PracticeSet } = values;
+    const data = await generateCourseOutline(TopicName, Playlist || "", Prerequisite, Lessions, PracticeSet);
+    console.log(data);
   }
 
   return (
@@ -168,13 +167,13 @@ const CreateCourse = () => {
                   type="button"
                   variant="outline"
                   onClick={() => form.reset()}
-                  className="w-32"
+                  className="w-32 cursor-pointer"
                 >
                   Reset
                 </Button>
                 <Button 
                   type="submit"
-                  className="w-32 bg-primary bg-black hover:bg-primary/90 text-white"
+                  className="w-32 bg-primary bg-black hover:bg-primary/90 text-white cursor-pointer"
                   onClick={()=>router.push('/course/asd')}
                 >
                   Create Course

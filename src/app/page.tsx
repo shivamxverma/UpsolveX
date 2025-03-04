@@ -1,16 +1,15 @@
-// app/page.js
 'use client';
 import Navbar from "@/components/Navbar";
 import Course from "@/components/course";
 import About from "@/components/About";
 import Testimonials from "@/components/Testinomials";
 import Link from "next/link";
+import { RecoilRoot } from "recoil";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <div className="md">
-        <Navbar className="fixed top-0 w-full z-40" />
         <main className="mt-16 p-4 bg-gray-50 min-h-screen">
           <div className="flex justify-center items-center p-4">
             <Link href="/create-course">

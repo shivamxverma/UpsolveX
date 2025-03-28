@@ -131,15 +131,12 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
       {/* Sign In Button */}
       <div className="col-span-2 flex justify-end">
-        <Button
-          className={`px-6 py-2 rounded-full font-semibold shadow-md transition-colors ${
-            theme === "dark"
+        <Link
+          className={`px-6 py-2 rounded-full font-semibold shadow-md transition-colors ${theme === "dark"
               ? "bg-indigo-500 text-white hover:bg-indigo-600"
-              : "bg-white text-indigo-600 hover:bg-indigo-100"
-          }`}
-        >
+              : "bg-white text-indigo-600 hover:bg-indigo-100"}`} href={"/login"}        >
           Sign In
-        </Button>
+        </Link>
       </div>
     </nav>
   );
